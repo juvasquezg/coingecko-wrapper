@@ -1,0 +1,8 @@
+{
+    "typescript.validate.enable": false,
+    "typescript.format.enable": false,
+    "javascript.validate.enable": true,
+    "javascript.format.enable": true,
+    "editor.tabSize": 2,
+    "files.eol": "\n"
+}
