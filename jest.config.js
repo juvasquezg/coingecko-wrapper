@@ -3,5 +3,6 @@
 
 module.exports = {
   clearMocks: true,
-  testEnvironment: 'node'
+  testEnvironment: 'node',
+  testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/src/config/environment.js']
 }

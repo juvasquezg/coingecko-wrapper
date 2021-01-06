@@ -1,0 +1,74 @@
+{
+	"info": {
+		"_postman_id": "92a12075-3874-4411-8ba8-6bf97a160133",
+		"name": "Coingecko_Wrapper",
+		"description": "coingecko-wrapper",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create a user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"user.123\",\r\n    \"password\": \"test.123456789\",\r\n    \"firstName\": \"Julian\",\r\n    \"lastName\": \"Vasquez\",\r\n    \"preferredCurrency\": \"usd\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				},
+				"description": "This endpoint creates a user\r\n\r\n## Data\r\n\r\n```\r\nusername: string (required)\r\npassword: string (required) \r\nfirstName: string (required)\r\nlastName: string (required)\r\npreferredCurrency: string (required) ['eur', 'ars', 'usd']\r\n```\r\n\r\n## 1. POST create a user\r\n\r\n  **Request [POST]** http://localhost:3000/api/users\r\n  \r\n  **Headers**\r\n\r\n\t{\r\n\t\tContent-Type: application/json\r\n\t}\r\n\t\r\n\r\n  **Body**\r\n\r\n\t{\r\n        \"username\": \"user.123\",\r\n        \"password\": \"test.123456789\",\r\n        \"firstName\": \"Julian\",\r\n        \"lastName\": \"Vasquez\",\r\n        \"preferredCurrency\": \"usd\"\r\n    }\r\n\r\n  **Response successful**\r\n\r\n  Status code `201 OK`\r\n\r\n\t{\r\n        \"ok\": true,\r\n        \"data\": {\r\n            \"id\": 1,\r\n            \"username\": \"user.123\",\r\n            \"firstName\": \"Julian\",\r\n            \"lastName\": \"Vasquez\",\r\n            \"preferredCurrency\": \"usd\",\r\n            \"updatedAt\": \"2021-01-06T22:35:56.967Z\",\r\n            \"createdAt\": \"2021-01-06T22:35:56.967Z\",\r\n            \"fullName\": \"Julian Vasquez\",\r\n            \"deletedAt\": null\r\n        }\r\n    }\r\n\r\n  **Response fail**\r\n\r\n  Status code `500 Internal Server Error`\r\n\r\n    {\r\n        \"ok\": false,\r\n        \"error\": \"notNull Violation: User.username cannot be null\"\r\n    }"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
