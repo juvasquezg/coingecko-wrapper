@@ -8,11 +8,8 @@ const { user } = require('../../models/__test__/fixtures/user')
 expressLoader({ app })
 
 // a helper function to make a POST request
-function post (url, body, token = null) {
+function post (url, body) {
   const httpRequest = request(app).post(url)
-  // if (token) {
-  //   httpRequest.set('Authorization', token)
-  // }
   httpRequest.send(body)
   httpRequest.set('Accept', 'application/json')
   httpRequest.set('Origin', `http://localhost:${port}`)
@@ -45,13 +42,6 @@ describe('Users endpoint - /api/users', () => {
     expect(res.body).toHaveProperty('ok')
     expect(res.body).toHaveProperty('data')
     expect(res.body.data).toHaveProperty('token')
-    // // important: response must not have password property
-    // expect(res.body.data).not.toHaveProperty('password')
-    // expect(res.body.data).toHaveProperty('firstName')
-    // expect(res.body.data).toHaveProperty('lastName')
-    // expect(res.body.data).toHaveProperty('fullName')
-    // expect(res.body.data).toHaveProperty('preferredCurrency')
-    // expect(res.body.ok).toBe(true)
     done()
   })
 })
