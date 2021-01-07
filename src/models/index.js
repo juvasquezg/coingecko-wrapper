@@ -24,6 +24,16 @@ module.exports = (sequelize) => {
       db[modelName].associate(db)
     }
   })
+
+  console.log('\nAssociations')
+  Object.keys(db).forEach((model) => {
+    for (const assoc of Object.keys(db[model].associations)) {
+      for (const accessor of Object.keys(db[model].associations[assoc].accessors)) {
+        console.log(db[model].name + '.' + db[model].associations[assoc].accessors[accessor] + '()')
+      }
+    }
+  })
+
   db.sequelize = sequelize
   db.Sequelize = Sequelize
 
