@@ -38,7 +38,6 @@ describe('Users endpoint - /api/users', () => {
       password: 'test.123456'
     })
     expect(res.statusCode).toEqual(200)
-    console.log(res.body)
     expect(res.body).toHaveProperty('ok')
     expect(res.body).toHaveProperty('data')
     expect(res.body.data).toHaveProperty('token')

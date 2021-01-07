@@ -14,7 +14,6 @@ module.exports = function setupAuthService (UserModel) {
   function generateToken (user) {
     return jwt.sign(
       {
-        id: user.id,
         username: user.username
       },
       jwtSecret,
