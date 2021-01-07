@@ -35,19 +35,23 @@ jest.mock('../../loaders/sequelize', () => {
  * /api/users endpoint
  */
 describe('Users endpoint - /api/users', () => {
-  test('POST /api/users, user was created or updated', async (done) => {
-    const res = await post('/api/users', { ...user, password: 'test.123456' })
-    expect(res.statusCode).toEqual(201)
+  test('POST /api/auth/signin, Signin user', async (done) => {
+    const res = await post('/api/auth/signin', {
+      username: user.username,
+      password: 'test.123456'
+    })
+    expect(res.statusCode).toEqual(200)
+    console.log(res.body)
     expect(res.body).toHaveProperty('ok')
     expect(res.body).toHaveProperty('data')
-    expect(res.body.data).toHaveProperty('username')
-    // important: response must not have password property
-    expect(res.body.data).not.toHaveProperty('password')
-    expect(res.body.data).toHaveProperty('firstName')
-    expect(res.body.data).toHaveProperty('lastName')
-    expect(res.body.data).toHaveProperty('fullName')
-    expect(res.body.data).toHaveProperty('preferredCurrency')
-    expect(res.body.ok).toBe(true)
+    expect(res.body.data).toHaveProperty('token')
+    // // important: response must not have password property
+    // expect(res.body.data).not.toHaveProperty('password')
+    // expect(res.body.data).toHaveProperty('firstName')
+    // expect(res.body.data).toHaveProperty('lastName')
+    // expect(res.body.data).toHaveProperty('fullName')
+    // expect(res.body.data).toHaveProperty('preferredCurrency')
+    // expect(res.body.ok).toBe(true)
     done()
   })
 })
